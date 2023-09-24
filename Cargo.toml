@@ -2,7 +2,14 @@
 name = "kuro"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "GPL-3.0"
+license-file = "LICENSE"
+description = "A cross-platform dotfiles/configuration management tool"
+homepage = "https://github.com/KevinSilvester/kuro"
+repository = "https://github.com/KevinSilvester/kuro"
+documentation = "https://docs.rs/kuro"
+readme = "README.md"
+categories = ["utilities", "system"]
+keywords = ["dotfiles", "configuration", "management", "cross-platform"]
 
 [dependencies]
