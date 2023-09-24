@@ -1,12 +1,11 @@
 [package]
 name = "kuro"
-version = "0.1.0"
+version = "0.0.0"
 edition = "2021"
 license = "GPL-3.0"
 description = "A cross-platform dotfiles/configuration management tool"
 homepage = "https://github.com/KevinSilvester/kuro"
 repository = "https://github.com/KevinSilvester/kuro"
-documentation = "https://docs.rs/kuro"
 readme = "README.md"
 categories = ["utilities", "system"]
 keywords = ["dotfiles", "configuration", "management", "cross-platform"]
