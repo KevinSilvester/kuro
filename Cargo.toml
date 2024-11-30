@@ -10,4 +10,17 @@ readme = "README.md"
 categories = ["utilities", "system"]
 keywords = ["dotfiles", "configuration", "management", "cross-platform"]
 
+[profile.release]
+opt-level = 3
+
 [dependencies]
+anyhow = "1.0.75"
+clap = { version = "4.4.4", features = ["derive"] }
+git2 = "0.18.1"
+glob = "0.3.1"
+serde = { version = "1.0.188", features = ["derive"] }
+shellexpand = "3.1.0"
+toml = "0.8.1"
+
+[target.'cfg(unix)'.dependencies]
+openssl = { version = "0.10.57", features = ["vendored"] }

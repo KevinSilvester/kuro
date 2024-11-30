@@ -1,3 +1,9 @@
+use clap::Parser;
+
+mod cli;
+mod config;
+
 fn main() {
-    println!("Hello, world!");
+    let value =  cli::Cli::parse();
+    dbg!(value);
 }
