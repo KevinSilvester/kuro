@@ -1,0 +1,21 @@
+version = "1"
+
+[kuro_options]
+editor = "nvim"
+trash = true
+trash_cmd.windows = ["pwsh", "-c", "Remove-ItemSafely", "${args:path}"]
+trash_cmd.unix = ["trash-put", "${args:path}"]
+
+[[dots]]
+name = "nvim"
+src = { git = "https://github.com/KevinSilvester/nvim-config.git" }
+dest = { windows = "~/AppData/Local/nvim", unix = "~/.config/nvim" }
+
+[[dots]]
+name = "wezterm"
+src = { git = "https://github.com/KevinSilvester/wezterm-config.git" }
+dest = "~/.config/wezterm"
+
+[[dots]]
+name = "test-dotfiles-1"
+dest = "~/test-dotfiles-1"
