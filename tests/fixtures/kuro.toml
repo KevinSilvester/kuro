@@ -1,0 +1,72 @@
+# This is a sample kuro configuration file for testing purposes.
+
+# Version of the kuro configuration format
+version = "1"
+
+# Runtime environment variables which override system environment variables
+[env]
+XDG_CONFIG_HOME = { windows = "tests/outputs/AppData/Local", unix = "tests/outputs/.config" }
+
+
+# Runtime options for kuro
+[kuro_options]
+editor = "nvim"
+
+# Command to safely move files to trash/recycle bin
+[kuro_options.trash_cmd]
+windows = ["pwsh", "-c", "Remove-ItemSafely", "${dotfile:dest}"]
+unix = ["trash-put", "${dotfile:dest}"]
+
+# Git options for kuro
+# [kuro_options.git]
+# pull_before_edit = true
+# commit_after_edit = true
+# push_after_edit = false
+# commit_msg_format = "edit(${dotfile:name}): ${args:message} ${fn:timestamp('%Y-%m-%d %H:%M:%S')}"
+# auto_commit_msg = "kuro auto-commit"
+
+
+# List of dotfiles to manage
+# from remote git repositories
+[[dots.git]]
+name = "nvim"
+repo = "https://github.com/KevinSilvester/nvim-config.git"
+branch = "lazy"
+dest = "${env:XDG_CONFIG_HOME}/nvim"
+
+[[dots.git]]
+name = "wezterm"
+repo = "https://github.com/KevinSilvester/wezterm-config.git"
+branch = "master"
+dest = "${env:XDG_CONFIG_HOME}/wezterm"
+
+# from remote http(s) urls
+[[dots.http]]
+name = "test-http"
+url = "https://gist.githubusercontent.com/KevinSilvester/99852ad43d47ec0301830e35c9fe5e6a/raw/b03bcefc05e25500d4d59f1e1fc49d03d35326ad/test-config.json"
+dest = "${env:XDG_CONFIG_HOME}/test-http"
+
+# from the local directory containing this kuro.toml file
+[[dots.local]]
+name = "test-dotfiles-1"
+src = "test-dotfiles-1"
+dest = "${env:XDG_CONFIG_HOME}/test-dotfiles-1"
+method = "symlink"
+
+[[dots.local]]
+name = "test-dotfiles-2"
+src = "test-dotfiles-2"
+dest = "${env:XDG_CONFIG_HOME}/test-dotfiles-2"
+method = "copy"
+
+[[dots.local]]
+name = "test-dotfiles-3"
+src = "test-dotfiles-3"
+dest = "${env:XDG_CONFIG_HOME}/test-dotfiles-3"
+method = "symlink"
+
+[[dots.local]]
+name = "test-dotfiles-4"
+src = "test-dotfiles-4"
+dest = "${env:XDG_CONFIG_HOME}/test-dotfiles-4"
+method = "copy"
