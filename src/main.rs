@@ -1,9 +1,9 @@
-use clap::Parser;
-
 mod cli;
-mod config;
 
-fn main() {
-    let value =  cli::Cli::parse();
-    dbg!(value);
+use kuro::config::Config;
+
+fn main() -> anyhow::Result<()> {
+    // let value =  cli::Cli::parse();
+    let _config = Config::load()?;
+    Ok(())
 }
