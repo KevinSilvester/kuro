@@ -22,9 +22,9 @@ pub enum Config {
 }
 
 impl Config {
-    pub fn load() -> anyhow::Result<internal::ConfigInternal> {
-        let kuro_dir = match std::env::var("KURO_DIR").ok() {
-            Some(val) => PathBuf::from(val),
+    pub fn load(kuro_dir: Option<PathBuf>) -> anyhow::Result<internal::ConfigInternal> {
+        let kuro_dir = match kuro_dir {
+            Some(val) => val,
             None => {
                 let home_dir = dirs::home_dir()
                     .ok_or(anyhow::anyhow!("User home directory not dectected!"))?;
@@ -53,7 +53,7 @@ impl Config {
         let config: Config = toml::from_str(&config_str)?;
 
         match config {
-            Config::V1(c) => c.to_internal()
+            Config::V1(c) => c.to_internal(),
         }
     }
 }

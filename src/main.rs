@@ -1,9 +1,13 @@
 mod cli;
 
+use clap::Parser;
+
 use kuro::config::Config;
 
+use crate::cli::Args;
+
 fn main() -> anyhow::Result<()> {
-    // let value =  cli::Cli::parse();
-    let _config = Config::load()?;
+    let value =  Args::parse();
+    let _config = Config::load(value.kuro_dir)?;
     Ok(())
 }
